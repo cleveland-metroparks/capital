@@ -42,13 +42,30 @@ var geoJson = {
         "project": "Strawberry Pond Restoration",
         "department": "Natural Resources",
         "marker-size": "small",
-        "marker-color": "E9943F"
+        "marker-color": "#E9943F"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
           -81.4311146736145,
           41.579650348492585
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "Rocky River",
+        "project": "Rocky River Nature Center Trail Updates",
+        "department": "Natural Resources",
+        "marker-size": "small",
+        "marker-color": "#E9943F"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.88857078552246,
+          41.41041955746075
         ]
       }
     }
