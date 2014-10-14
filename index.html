@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>CM | Capital Projects</title>
+	<link href="css/style.css" rel='stylesheet' />
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script src='http://api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.js'></script>
+	<link href='http://api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css' rel='stylesheet' />
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  <!--[if lte IE 8]>
+    <link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet'>
+  <![endif]-->
+</head>
+
+
+<body>
+
+<div id='map'></div>
+
+<div id='legend-content'>
+  <div class='my-legend'>
+  <div class='legend-scale'>
+    <ul class='legend-labels'>
+      <li><center><img class="legend_img" src="images/pemd.png" /></center>PEMD</li>
+      <li><center><img class="legend_img" src="images/natural_resources.png" /></center>Natural Resources</li>
+    </ul>
+  </div>
+  </div>
+</div>
+
+<div id='navigation'>
+
+
+<!--<div id="cssmenu">
+<ul>
+   <li class='has-sub'><a href='#'><span>Select a Project</span><img id="down_arrow" src="images/down_arrow.png" /></a>
+      <ul id="maplinks">
+	  <!-- These links serve two purposes: zoom to streams on click and to open their respective DIVs simultaneously
+	  <!-- the javascript in the href allows the links to open the DIVs; the rest of the code is found in behi.js line 143
+		 <li><a href="javascript:tabSwitch_2(1, 11, 'tab_', 'content_');" id="tab_1">Acacia</a></li>
+		 <li><a href="javascript:tabSwitch_2(2, 11, 'tab_', 'content_');" id="tab_2"><span>Bedford</span></a></li>
+		 <li><a href="javascript:tabSwitch_2(3, 11, 'tab_', 'content_');" id="tab_3" data-position='41.3745,-81.833038'>Big Creek</a></li>
+		 <li><a href="javascript:tabSwitch_2(4, 11, 'tab_', 'content_');" id="tab_4" data-position='41.3752,-81.5513'>Bradley Woods</a></li>
+         <li><a href="javascript:tabSwitch_2(5, 11, 'tab_', 'content_');" id="tab_5" data-position='41.5047,-81.495'>Brecksville</a></li>
+		 <li><a href="javascript:tabSwitch_2(6, 11, 'tab_', 'content_');" id="tab_6" data-position='41.421,-81.6385'>Brookside</a></li>
+         <li><a href="javascript:tabSwitch_2(7, 11, 'tab_', 'content_');" id="tab_7" data-position='41.3543,-81.583'>Euclid Creek</a></li>
+		 <li><a href="javascript:tabSwitch_2(8, 11, 'tab_', 'content_');" id="tab_8" data-position='41.297,-81.584'>Garfield Park</a></li>
+         <li><a href="javascript:tabSwitch_2(9, 11, 'tab_', 'content_');" id="tab_9" data-position='41.4197,-81.4244'>Hinckley</a></li>
+         <li><a href="javascript:tabSwitch_2(10, 11, 'tab_', 'content_');" id="tab_10" data-position='41.279871,-81.756'>Huntington</a></li>
+         <li><a href="javascript:tabSwitch_2(11, 11, 'tab_', 'content_');" id="tab_11" data-position='41.383056,-81.696053'>Lakefront</a></li>
+		 <li><a>Mill Stream Run</a></li>
+		 <li><a>North Chagrin</a></li>
+		 <li><a>Ohio &amp; Erie Canal</a></li>
+		 <li><a>Rocky River</a></li>
+		 <li><a>South Chagrin</a></li>
+		 <li><a>Washington</a></li>
+		 <li><a>West Creek</a></li>
+	 </ul>
+	</li>
+</ul>
+</div>-->
+	
+<div id='cssmenu'>
+<ul>
+   <li class='active has-sub'><a href='#'>Select A Project</a>
+      <ul>
+        <!-- <li class='has-sub'><a href='#'>Acacia</a>
+            <ul>
+               <li>				<a href="javascript:tabSwitch_2(2, 11, 'tab_', 'content_');" id="tab_2" data-position='41.279871,-81.756' zoom-level="17"> Sub Product</a></li>
+               <li class='last'><a href="javascript:tabSwitch_2(3, 11, 'tab_', 'content_');" id="tab_3" data-position='41,-81' zoom-level='16'>Sub Product</a></li>
+            </ul>
+         </li>
+         <li class='has-sub'><a href='#'>Bedford</a>
+            <ul>
+               <li>				<a href="javascript:tabSwitch_2(4, 11, 'tab_', 'content_');" id="tab_4" data-position='41.3745,-81.833038' zoom-level='16'>Sub Product</a></li>
+               <li class='last'><a href="javascript:tabSwitch_2(5, 11, 'tab_', 'content_');" id="tab_5" data-position='41.3752,-81.5513' zoom-level='16'>Sub Product</a></li>
+            </ul>
+         </li>
+		 <li class='has-sub'><a href='#'>Big Creek</a>
+            <ul>
+               <li>				<a href="javascript:tabSwitch_2(6, 11, 'tab_', 'content_');" id="tab_6" data-position='41.5047,-81.495' zoom-level='16'>Sub Product</a></li>
+               <li class='last'><a href="javascript:tabSwitch_2(7, 11, 'tab_', 'content_');" id="tab_7" data-position='41.421,-81.6385' zoom-level='16'>Sub Product</a></li>
+            </ul>
+         </li>
+         <li class='has-sub'><a href='#'>Bradley Woods</a>
+            <ul>
+               <li>				<a href="javascript:tabSwitch_2(8, 11, 'tab_', 'content_');" id="tab_8" data-position='41.3543,-81.583' zoom-level='16'>Sub Product</a></li>
+               <li class='last'><a href="javascript:tabSwitch_2(9, 11, 'tab_', 'content_');" id="tab_9" data-position='41.297,-81.584' zoom-level='16'>Sub Product</a></li>
+            </ul>
+         </li>-->
+		 <li class='has-sub'><a href='#'>Brecksville</a>
+            <ul>
+               <li>				<a href="javascript:tabSwitch_2(2, 4, 'tab_', 'content_');" id="tab_2" data-position='41.304175, -81.752443' zoom-level='17'>Auckerman Dog Park</a></li>
+			   <!--<li class='last'><a href="javascript:tabSwitch_2(11, 11, 'tab_', 'content_');" id="tab_11" data-position='41.383056,-81.696053' zoom-level='16'>Sub Product</a></li>-->
+            </ul>
+         </li>
+       <!--  <li class='has-sub'><a href='#'><span>Brookside</span></a>
+            <ul>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>41.304175, -81.752443
+            </ul>
+         </li>
+		 <li class='has-sub'><a href='#'><span>Euclid Creek</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+         <li class='has-sub'><a href='#'><span>Garfield Park</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>-->
+         <li class='has-sub'><a href='#'><span>Hinckley</span></a>
+            <ul>
+               <a href="javascript:tabSwitch_2(3, 4, 'tab_', 'content_');" id="tab_3" data-position='41.21951771916777,  -81.72328233718872' zoom-level='17'>Redwing Field Restoration</a></li>
+            </ul>
+         </li>
+        <!-- <li class='has-sub'><a href='#'><span>Huntington</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+		 <li class='has-sub'><a href='#'><span>Lakefront</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+         <li class='has-sub'><a href='#'><span>Mill Stream Run</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>-->
+		 <li class='has-sub'><a href='#'><span>North Chagrin</span></a>
+            <ul>
+               <a href="javascript:tabSwitch_2(4, 4, 'tab_', 'content_');" id="tab_4" data-position='41.579650348492585, -81.4311146736145' zoom-level='17'>Strawberry Pond Restoration</a></li>
+            </ul>
+         </li>
+         <!--<li class='has-sub'><a href='#'><span>Ohio &amp; Erie Canal</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+		 <li class='has-sub'><a href='#'><span>Rocky River</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+         <li class='has-sub'><a href='#'><span>South Chagrin</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+		 <li class='has-sub'><a href='#'><span>Washington</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+         <li class='has-sub'><a href='#'><span>West Creek</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+		 <li class='has-sub'><a href='#'><span>Zoo</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>-->
+      </ul>
+   </li>
+   <li class='last'><a href="javascript:tabSwitch_2(1, 4, 'tab_', 'content_');" id="tab_1" data-position='41.3902, -81.6682' zoom-level="10">Home</a></li>
+</ul>
+
+</div>
+	
+	<div id="content_1" class="content_boxes">
+		<h1>Capital Projects</h1>
+		<p>A map of capital projects budgeted for 2015</p>
+	</div>
+	
+	<div id="content_10" class="content_boxes">
+		
+		<h2>Acacia</h2>
+		
+	</div>
+
+	<div id="content_3" class="content_boxes">
+		<h2>Redwing Field Restoration</h2>
+		<table class="project-tables">
+			<tr>
+				<td class="first-column">Project Number:</td>
+				<td class="empty-column"></td>
+				<td>#00000000</td>
+			</tr>
+			<tr>
+				<td class="first-column">Reservation:</td>
+				<td class="empty-column"></td>
+				<td>Hinckley</td>
+			</tr>
+			<tr>
+				<td class="first-column">Start Date:</td>
+				<td class="empty-column"></td>
+				<td>1/1/2015</td>
+			</tr>
+			<tr>
+				<td class="first-column"> Est. Completion Date:</td>
+				<td class="empty-column"></td>
+				<td>9/1/2015</td>
+			</tr>
+			<tr>
+				<td class="first-column">Budget:</td>
+				<td class="empty-column"></td>
+				<td>$50,000.00</td>
+			</tr>
+			<tr>
+				<td class="first-column">Project Manager:</td>
+				<td class="empty-column"></td>
+				<td>John Smith</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="content_4" class="content_boxes">
+		<h2>Strawberry Pond Restoration</h2>
+		<table class="project-tables">
+			<tr>
+				<td class="first-column">Project Number:</td>
+				<td class="empty-column"></td>
+				<td>#00000000</td>
+			</tr>
+			<tr>
+				<td class="first-column">Reservation:</td>
+				<td class="empty-column"></td>
+				<td>North Chagrin</td>
+			</tr>
+			<tr>
+				<td class="first-column">Start Date:</td>
+				<td class="empty-column"></td>
+				<td>1/1/2015</td>
+			</tr>
+			<tr>
+				<td class="first-column"> Est. Completion Date:</td>
+				<td class="empty-column"></td>
+				<td>9/1/2015</td>
+			</tr>
+			<tr>
+				<td class="first-column">Budget:</td>
+				<td class="empty-column"></td>
+				<td>$50,000.00</td>
+			</tr>
+			<tr>
+				<td class="first-column">Project Manager:</td>
+				<td class="empty-column"></td>
+				<td>John Smith</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="content_5" class="content_boxes">
+		<h2>Euclid Creek (Acacia)</h2>
+	</div>
+	
+	<div id="content_6" class="content_boxes">
+		<h2>Mill Creek</h2>
+	</div>
+	
+	<div id="content_7" class="content_boxes">
+		<h2>Sagamore Creek</h2>
+	</div>
+	
+	<div id="content_8" class="content_boxes">
+		<h2>Snowville</h2>
+	</div>
+	
+	<div id="content_9" class="content_boxes">
+		<h2>Sulphur Springs</h2>
+	</div>
+	
+	<div id="content_2" class="content_boxes">
+	
+		<h2>Auckerman Dog Park</h2>
+		<p>Converting an old farm into a dog park and picnic Area</p>
+		
+		<table class="project-tables">
+			<tr>
+				<td class="first-column">Project Number:</td>
+				<td class="empty-column"></td>
+				<td>#00000000</td>
+			</tr>
+			<tr>
+				<td class="first-column">Reservation:</td>
+				<td class="empty-column"></td>
+				<td>Brecksville</td>
+			</tr>
+			<tr>
+				<td class="first-column">Start Date:</td>
+				<td class="empty-column"></td>
+				<td>1/1/2015</td>
+			</tr>
+			<tr>
+				<td class="first-column"> Est. Completion Date:</td>
+				<td class="empty-column"></td>
+				<td>9/1/2015</td>
+			</tr>
+			<tr>
+				<td class="first-column">Budget:</td>
+				<td class="empty-column"></td>
+				<td>$50,000.00</td>
+			</tr>
+			<tr>
+				<td class="first-column">Project Manager:</td>
+				<td class="empty-column"></td>
+				<td>John Smith</td>
+			</tr>
+		</table>
+		
+		<div class="project-image"><img  src="images/dog_park.jpg"/></div>
+		
+	</div>
+	
+	<div id="content_11" class="content_boxes">
+		<h2>West Creek</h2>
+	</div>
+	
+	
+</div><!-- Close id="navigation" -->
+<!-- Creates the map and adds it to the map DIV -->
+
+<script>$('.content_boxes').css({'background':'url(images/CM_ver_color_small.jpg)','background-repeat':'no-repeat', 'margin':'0 auto', 'background-position':'50% 25px'});</script>
+
+<script>var map = L.mapbox.map('map');</script>
+
+<script src='js/final_behi_data.js'></script>
+
+</body>
+</html>
